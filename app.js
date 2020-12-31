@@ -2,7 +2,6 @@
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
-var logger = require("morgan");
 var session = require("express-session");
 
 //import styles from "./styles/style";
@@ -22,8 +21,7 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-// Use logging and set settings
-app.use(logger("dev"));
+// Set settings
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
