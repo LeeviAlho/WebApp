@@ -12,7 +12,9 @@ var http = require("http");
 
 // Reading env variables (config example from https://github.com/sclorg/nodejs-ex/blob/master/server.js)
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-  ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0";
+  ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0",
+  mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+  mongoURLLabel = "";
 
 app.set("port", port);
 
