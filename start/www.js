@@ -31,7 +31,6 @@ var server = http.createServer(app);
  */
 
 server.listen(port);
-var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
