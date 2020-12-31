@@ -42,10 +42,12 @@ html
 
   -//Footer with the logo and name
     footer(class="page-footer orange flow-text")
-      div(class="row")
-        a(class="col s10 m5 offset-s1 offset-m1 white-text", id="title", href="/") #{title}
-        div(class="col s10 m5 offset-s1", id="subtitle") #{subtitle}
-
+      div(class="row valign-wrapper hide-on-small-only")
+        a(class="col s10 m3 offset-s1 offset-m1 white-text", id="title", href="/") #{title}
+        div(class="col s10 m7 offset-s1 ", id="subtitle") #{subtitle}
+      div(class="row hide-on-med-and-up")
+        a(class="col s10 offset-s1 white-text", id="title", href="/") #{title}
+        div(class="col s10 offset-s1 ", id="subtitle") #{subtitle}
     -//Navigation menus depending on whether the user has logged into or not
     
     div(class="flow-text transparent")
