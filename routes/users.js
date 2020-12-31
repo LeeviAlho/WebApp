@@ -11,13 +11,22 @@ router.get("/", function (req, res, next) {
     title: req.app.get("title"),
     subtitle: req.app.get("subtitle"),
     user: req.session.username,
-    posts: postdata
+    posts: postdata,
+    errormessage: false
   });
 });
 
 router.post("/create", body("*").trim().escape(), function (req, res, next) {
   if (req.app.get("userbase").indexOf(req.body.author) < 0) {
-    throw new Error("Username not found");
+    var postdata = req.app.get("postStorrage");
+
+    res.render("users", {
+      title: req.app.get("title"),
+      subtitle: req.app.get("subtitle"),
+      user: req.session.username,
+      posts: postdata,
+      errormessage: true
+    });
   } else {
     var username = req.body.author;
     console.log("Searched for: " + username);

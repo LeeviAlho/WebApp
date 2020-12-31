@@ -2,7 +2,11 @@ extends layout
 
 block content
   
-
+  if errormessage
+      div(class="col s10 m8 offset-s1 offset-m1 card amber darken-1")
+        div(class="card-content black-text")
+          span(class="card-title") Search error
+          div Username not found
 
   div(id="pagetitle" class="col s10 offset-s1") What user's posts do you want to look at?
   form(method='POST' action='/users/create', class="col s10 offset-s1")
