@@ -28,6 +28,7 @@ router.get("/", function (req, res, next) {
     subtitle: req.app.get("subtitle"),
     posts: postdata,
     author: username,
+    user: req.session.username,
     cookietimer: req.session.views
   });
 });

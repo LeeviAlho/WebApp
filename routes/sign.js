@@ -10,7 +10,8 @@ router.get("/", function (req, res, next) {
   } else {
     res.render("sign", {
       title: req.app.get("title"),
-      subtitle: req.app.get("subtitle")
+      subtitle: req.app.get("subtitle"),
+      user: req.session.username
     });
   }
 });

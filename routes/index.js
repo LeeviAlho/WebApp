@@ -13,7 +13,8 @@ router.get("/", function (req, res, next) {
       title: req.app.get("title"),
       subtitle: req.app.get("subtitle"),
       posts: postdata,
-      author: username
+      author: username,
+      user: req.session.username
     });
   } else {
     res.render("index", {

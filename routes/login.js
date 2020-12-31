@@ -10,7 +10,9 @@ router.get("/", function (req, res, next) {
   } else {
     res.render("login", {
       title: req.app.get("title"),
-      subtitle: req.app.get("subtitle")
+      subtitle: req.app.get("subtitle"),
+      user: req.session.username,
+      errormessage: false
     });
   }
 });
@@ -21,7 +23,12 @@ router.post("/", body("*").trim().escape().isLength({ min: 1 }), function (
   next
 ) {
   if (req.app.get("userbase").indexOf(req.body.author) < 0) {
-    res.render("sign", { title: "WASC" });
+    res.render("login", {
+      title: req.app.get("title"),
+      subtitle: req.app.get("subtitle"),
+      user: req.session.username,
+      errormessage: true
+    });
   } else {
     var username = req.body.author;
     console.log("Searched for: " + username);

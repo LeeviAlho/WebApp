@@ -10,6 +10,7 @@ router.get("/", function (req, res, next) {
   res.render("users", {
     title: req.app.get("title"),
     subtitle: req.app.get("subtitle"),
+    user: req.session.username,
     posts: postdata
   });
 });
