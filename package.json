@@ -6,8 +6,6 @@
     "start": "nodemon ./start/www.js"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-session": "^1.17.1",
     "express-validator": "6.2.0",
