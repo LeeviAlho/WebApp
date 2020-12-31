@@ -15,6 +15,6 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 
 app.set("port", port);
 
-var server = https.createServer(app);
+var server = http.createServer(app);
 
 server.listen(port);
