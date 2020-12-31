@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div(class="col s10 offset-s1")
+    div(id="pagetitle") Login
+    form(method='POST' action='/login')
+      div.form-group
+        input#name.form-control(class="orange", type='text', placeholder='  Your username' name='author', class="card-panel teal lighten-1")
+      button.btn.btn-primary(type='submit',class="orange") Log in

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+
+  div(id="pagetitle" class="col s11 offset-s1") Sign up
+
+  form(method='POST' action='/sign/create', class="col s10 offset-s1")
+    div.form-group
+      label(for='username', class="grey-text text-darken-1") Create a username (max 28 characters long):
+        input#name.form-control(class="orange", type='text', placeholder='  Your username' name='author', maxlength="28", class="card-panel teal lighten-1")
+    button.btn.btn-primary(type='submit', class="orange") Sign up

@@ -1,0 +1,77 @@
+doctype html
+html
+  head
+    title= title
+    
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style.
+      html {
+        background: rgb(253, 255, 155);
+      }
+
+      label {
+        font-size: 14px;
+      }
+      
+      #commentTime {
+        font-size: 17px;
+      }
+      #comment {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      #title {
+        font-size: 52px;
+        font-weight: bold;
+      }
+      #subtitle {
+        font-size: 28px;
+      }
+      #authortitle{
+        font-size: 42px;
+      }
+      #pagetitle{
+        font-size: 32px;
+      }
+
+    block scripts
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+  body
+
+  -//Footer with the logo and name
+    footer(class="page-footer orange flow-text")
+      div(class="row")
+        a(class="col s10 m5 offset-s1 offset-m1 white-text", id="title", href="/") #{title}
+        div(class="col s10 m5 offset-s1", id="subtitle") #{subtitle}
+
+    -//Navigation menus depending on whether the user has logged into or not
+    
+    div(class="flow-text transparent")
+      div(class="nav-wrapper transparent")
+        a(href="#!" class="brand-logo")
+        ul(class="row hide-on-med-and-up")
+          li(class="col s12")
+            a(class="col s6 waves-effect waves-light orange btn", href="/ownpage") My account 
+              i(class="material-icons right") account_circle
+            a(class="col s6 waves-effect waves-light orange btn", href="/users") Search for user
+        ul(class="right hide-on-small-only")
+          li
+            a(class="waves-effect waves-light orange btn", href="/ownpage") My account 
+              i(class="material-icons right") account_circle
+          li
+            div
+          li
+            a(class="waves-effect waves-light orange btn", href="/users") Search for user
+   
+
+    
+  -//text block based on the page
+    div(class="row flow-text")
+      block content
+    div(class="row")
+      block foot
+        #footer(class="col s10 offset-s1")
+          p Web Applications Social Platform by Leevi Alho
+          p Made for the course "Web Applications"
