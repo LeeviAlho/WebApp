@@ -15,26 +15,6 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 
 app.set("port", port);
 
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app);
-
-/**
- * Create HTTP server.
- */
-
-/**
- * Listen on provided port, on all network interfaces.
- */
+var server = https.createServer(app);
 
 server.listen(port);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-/**
- * Event listener for HTTP server "listening" event.
- */
