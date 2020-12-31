@@ -5,12 +5,13 @@ const { body } = require("express-validator");
 
 var username;
 
-/* GET users listing. */
+//users own page
 router.get("/", function (req, res, next) {
   if (req.app.get("postStorrage")) {
     var postdata = req.app.get("postStorrage");
   }
 
+  //if user hasn't logged in, is returned to the login page
   if (req.session.username) {
     username = req.session.username;
   } else {
@@ -33,12 +34,14 @@ router.get("/", function (req, res, next) {
   });
 });
 
+//when the user logs out, their session usernamedata is deleted
 router.get("/logout", function (req, res) {
   console.log("Logging out: " + username);
   req.session.username = "";
   res.redirect("/");
 });
 
+//let's the user post messages on their personal page
 router.post("/create", body("*").trim().escape(), function (req, res, next) {
   var local_message = req.body.message;
   var local_author = req.session.username;
@@ -56,20 +59,5 @@ router.post("/create", body("*").trim().escape(), function (req, res, next) {
 
   res.redirect("/ownpage");
 });
-
-// router.post("/create", body("*").trim().escape(), function (req, res, next) {
-//   var username = req.body.username;
-//   console.log("Username set to:" + username);
-//   var local_message = req.body.message;
-//   console.log("Sent message: " + local_message);
-//   console.log("from: " + username);
-
-//   req.app.get("postStorrage").push({
-//     author: username,
-//     message: local_message
-//   });
-
-//   res.redirect("/userview");
-// });
 
 module.exports = router;

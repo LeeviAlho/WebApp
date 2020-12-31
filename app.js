@@ -4,8 +4,6 @@ var express = require("express");
 var path = require("path");
 var session = require("express-session");
 
-//import styles from "./styles/style";
-
 // Include external files
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -45,10 +43,15 @@ app.use("/login", loginRouter);
 app.use("/sign", signRouter);
 app.use("/ownpage", ownpageRouter);
 
+//used global variables
+//this holds up all post information
 app.set("postStorrage", []);
+//this saves the current looked at user
 app.set("userinfo", []);
+//this stores all the useraccounts
 app.set("userbase", []);
 
+//title and subtitle set as global variables
 app.set("title", "WASP");
 app.set("subtitle", "Web Applications Social Platform");
 

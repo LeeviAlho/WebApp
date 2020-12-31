@@ -3,7 +3,7 @@ var router = express.Router();
 
 const { body } = require("express-validator");
 
-/* GET home page. */
+//home page
 router.get("/", function (req, res, next) {
   var postdata = req.app.get("postStorrage");
 
@@ -25,23 +25,13 @@ router.get("/", function (req, res, next) {
   }
 });
 
+//This is used, if the user has already logged in
 router.post("/create", body("*").trim().escape(), function (req, res, next) {
   var local_message = req.body.message;
   var local_author = req.session.username;
 
   var local_time = new Date();
-  // var local_time =
-  //   today.getUTCFullYear() +
-  //   "." +
-  //   (today.getUTCMonth() + 1) +
-  //   "." +
-  //   today.getUTCDate() +
-  //   " " +
-  //   today.getUTCHours() +
-  //   ":" +
-  //   today.getUTCMinutes() +
-  //   ":" +
-  //   today.getUTCSeconds();
+
   console.log("Sent message: " + local_message);
   console.log("from: " + local_author);
 

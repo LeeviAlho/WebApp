@@ -3,7 +3,7 @@ var router = express.Router();
 
 const { body, validationResult } = require("express-validator");
 
-/* GET users listing. */
+//sign up page
 router.get("/", function (req, res, next) {
   if (req.session.username) {
     res.redirect("/ownpage");
@@ -16,6 +16,7 @@ router.get("/", function (req, res, next) {
   }
 });
 
+//creates a new user and loggs them in
 router.post(
   "/create",
   body("*").trim().escape().isLength({ min: 1 }),
@@ -29,7 +30,7 @@ router.post(
       var username = req.body.author;
       console.log("New user created: " + username);
       //
-      //Go to userview-page with note of the sellected user
+      //Go to userview-page with user saved into cookie
       req.session.username = username;
       req.app.get("userbase").push(username);
       res.redirect("/ownpage");

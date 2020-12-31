@@ -1,17 +1,16 @@
 var express = require("express");
 var router = express.Router();
 
-const { body } = require("express-validator");
-
 var ownpage = false;
 var username;
 
-/* GET users listing. */
+// Searched users page
 router.get("/", function (req, res, next) {
   if (req.app.get("postStorrage")) {
     var postdata = req.app.get("postStorrage");
   }
   username = req.app.get("userinfo")[0];
+  //if searched user is the user themselves, they get sent to their own page
   if (req.session.username === username) {
     res.redirect("/ownpage");
   }
@@ -29,20 +28,6 @@ router.get("/", function (req, res, next) {
     cookietimer: req.session.views,
     form: ownpage
   });
-});
-
-router.post("/create", body("*").trim().escape(), function (req, res, next) {
-  var local_message = req.body.message;
-  var local_author = req.session.username;
-  console.log("Sent message: " + local_message);
-  console.log("from: " + local_author);
-
-  req.app.get("postStorrage").push({
-    author: local_author,
-    message: local_message
-  });
-
-  res.redirect("/userview");
 });
 
 module.exports = router;
