@@ -57,13 +57,11 @@ html
           li(class="col s12")
             if user
               a(class="col s6 waves-effect waves-light orange btn", href="/ownpage") My account 
-                div(style="display: inline") &nbsp;&nbsp;
-                i(class="material-icons") account_circle
+                i(class="material-icons right") account_circle
               a(class="col s6 waves-effect waves-light orange btn", href="/users") Search for user
             else
-              a(class="col s4 waves-effect waves-light orange btn", href="/login") Log in 
-                div(style="display: inline") &nbsp;&nbsp;
-                i(class="material-icons") account_circle
+              a(class="col s4 waves-effect waves-light orange valign-wrapper btn", href="/login") Log in 
+                i(class="material-icons right") account_circle
               a(class="col s4 waves-effect waves-light orange btn", href="/sign") Sign up
               a(class="col s4 waves-effect waves-light orange btn", href="/users") Search for user
         ul(class="right hide-on-small-only")
